@@ -13,6 +13,9 @@ public class NomMachine {
 
     public NomMachine(String nomMachine) {
         String trimmed = Objects.requireNonNull(nomMachine, "Le nom ne doit pas être nul").trim();
+        if (!isValidNomMachine(trimmed)) {
+            throw new IllegalArgumentException("Nom de machine invalide: " + nomMachine);
+        }
         this.nomMachine = trimmed;
     }
 
